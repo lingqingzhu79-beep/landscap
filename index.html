@@ -170,9 +170,26 @@ table tr:nth-child(even) td{background:var(--g50)}
 .toast{position:fixed;bottom:22px;right:22px;background:var(--g800);color:white;padding:11px 18px;border-radius:var(--r2);font-size:.86rem;font-weight:600;box-shadow:var(--s4);z-index:9999;animation:si .3s ease;display:none}
 .toast.show{display:block}
 @keyframes si{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* ====== CSS UNTUK MENU HP ====== */
+.menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.4rem; cursor: pointer; padding-right: 10px; }
+
 @media(max-width:768px){
   #app{grid-template-columns:1fr}
-  #sidebar{display:none}
+  .menu-toggle { display: block; }
+  
+  #sidebar {
+    position: fixed;
+    left: -260px;
+    top: 64px;
+    bottom: 0;
+    z-index: 999;
+    transition: left 0.3s ease;
+    display: block !important;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+  }
+  #sidebar.open { left: 0; }
+  
   .hero{padding:36px 18px}.hero h1{font-size:1.9rem}
   .ca,.qc{padding:16px}
 }
@@ -186,11 +203,15 @@ table tr:nth-child(even) td{background:var(--g50)}
 </div>
 <div class="toast" id="toast"></div>
 <div id="app">
+<!-- TOPBAR -->
 <div id="topbar">
+  <!-- TOMBOL MENU HP -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   <div class="tlogo">🌿 <span>Landscaping</span> XI DPIB</div>
   <span class="tbadge">SMK</span><span class="tbadge">DPIB</span>
   <span class="tyear">© 2026 – Media Pembelajaran Interaktif</span>
 </div>
+<!-- SIDEBAR -->
 <nav id="sidebar">
   <div class="nst">Beranda</div>
   <div class="ni active" onclick="showPage('beranda')"><span class="ic">🏠</span>Beranda</div>
@@ -215,7 +236,9 @@ table tr:nth-child(even) td{background:var(--g50)}
   <div class="nst">Penutup</div>
   <div class="ni" onclick="showPage('kesimpulan')"><span class="ic">📋</span>Kesimpulan</div>
 </nav>
+<!-- MAIN -->
 <main id="main">
+<!-- BERANDA -->
 <div id="page-beranda" class="page active">
   <div class="hero">
     <h1>Media Pembelajaran<br><em>Landscaping</em></h1>
@@ -244,6 +267,7 @@ table tr:nth-child(even) td{background:var(--g50)}
     </div>
   </div>
 </div>
+<!-- TUJUAN -->
 <div id="page-tujuan" class="page">
   <div class="hero"><h1>🎯 Tujuan <em>Pembelajaran</em></h1><p>Capaian kompetensi yang diharapkan setelah mengikuti pembelajaran Landscaping XI DPIB.</p></div>
   <div class="ca">
@@ -265,6 +289,7 @@ table tr:nth-child(even) td{background:var(--g50)}
     </div>
   </div>
 </div>
+<!-- CARA PENGGUNAAN -->
 <div id="page-cara" class="page">
   <div class="hero"><h1>📖 Cara <em>Penggunaan</em></h1><p>Panduan penggunaan media pembelajaran interaktif Landscaping XI DPIB.</p></div>
   <div class="ca">
@@ -286,6 +311,7 @@ table tr:nth-child(even) td{background:var(--g50)}
     </div>
   </div>
 </div>
+<!-- BAB 1 -->
 <div id="page-bab1" class="page">
   <div class="hero"><h1>🌱 Bab 1<br><em>Konsep Dasar Lansekap</em></h1><p>Memahami pengertian, sejarah, fungsi, dan ruang lingkup ilmu lansekap sebagai fondasi pembelajaran.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -319,6 +345,7 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab1')">✏️ Mulai Latihan Bab 1 →</button></div></div>
 </div>
+<!-- BAB 2 -->
 <div id="page-bab2" class="page">
   <div class="hero"><h1>📐 Bab 2<br><em>Prinsip Desain Lansekap</em></h1><p>Kaidah-kaidah desain yang menciptakan taman indah, fungsional, dan harmonis.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -358,6 +385,7 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab2')">✏️ Mulai Latihan Bab 2 →</button></div></div>
 </div>
+<!-- BAB 3 -->
 <div id="page-bab3" class="page">
   <div class="hero"><h1>🌳 Bab 3<br><em>Elemen Tanaman & Vegetasi</em></h1><p>Mengenal dan mengklasifikasikan tanaman lansekap untuk komposisi vegetasi yang tepat dan lestari.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -386,6 +414,7 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab3')">✏️ Mulai Latihan Bab 3 →</button></div></div>
 </div>
+<!-- BAB 4 -->
 <div id="page-bab4" class="page">
   <div class="hero"><h1>💧 Bab 4<br><em>Sistem Irigasi Taman</em></h1><p>Perencanaan dan penerapan sistem irigasi yang efisien untuk mendukung kehidupan tanaman lansekap.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -411,6 +440,7 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab4')">✏️ Mulai Latihan Bab 4 →</button></div></div>
 </div>
+<!-- BAB 5 -->
 <div id="page-bab5" class="page">
   <div class="hero"><h1>🏗️ Bab 5<br><em>Elemen Keras (Hardscape)</em></h1><p>Material dan konstruksi elemen keras yang memberikan struktur dan fungsi pada taman.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -439,6 +469,7 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab5')">✏️ Mulai Latihan Bab 5 →</button></div></div>
 </div>
+<!-- KESIMPULAN -->
 <div id="page-kesimpulan" class="page">
   <div class="hero"><h1>📋 <em>Kesimpulan</em></h1><p>Rangkuman seluruh materi Landscaping XI DPIB sebagai bahan review sebelum ujian.</p></div>
   <div class="ca">
@@ -456,8 +487,10 @@ table tr:nth-child(even) td{background:var(--g50)}
     </div>
   </div>
 </div>
+<!-- QUIZ PAGE -->
 <div id="page-quiz" class="page">
 <div class="qc">
+  <!-- FORM IDENTITAS -->
   <div id="qform">
     <div class="sh"><div class="ln"></div><div><h2 id="qform-title">Latihan Soal</h2><p>Isi identitas Anda sebelum memulai</p></div></div>
     <div class="sfc">
@@ -468,6 +501,7 @@ table tr:nth-child(even) td{background:var(--g50)}
       </div>
     <button class="btn btn-p" onclick="startQuiz()" style="width:100%;justify-content:center;font-size:.97rem;padding:13px;">🚀 Mulai Latihan Soal</button>
   </div>
+  <!-- SOAL AREA -->
   <div id="qsoal" style="display:none">
     <div class="qh">
       <div>
@@ -491,6 +525,7 @@ table tr:nth-child(even) td{background:var(--g50)}
       <button class="btn btn-p" id="btn-next" onclick="nextQ()" disabled>Soal Berikutnya →</button>
     </div>
   </div>
+  <!-- HASIL -->
   <div id="qresult" style="display:none">
     <div class="rcard">
       <span class="remi" id="remi">🏆</span>
@@ -503,6 +538,7 @@ table tr:nth-child(even) td{background:var(--g50)}
         <div class="rrow"><span class="rk">❌ Salah</span><span class="rv" id="r-salah">-</span></div>
         <div class="rrow"><span class="rk">📚 Latihan</span><span class="rv" id="r-bab">-</span></div>
       </div>
+      <!-- STATUS KIRIM -->
       <div class="send-status" id="send-status">
         <span id="send-icon">📤</span><span id="send-msg">Mengirim nilai...</span>
       </div>
@@ -513,6 +549,7 @@ table tr:nth-child(even) td{background:var(--g50)}
       </div>
     </div>
   </div>
+  <!-- PEMBAHASAN -->
   <div id="qpembahasan" style="display:none">
     <div class="sh"><div class="ln"></div><div><h2>📖 Pembahasan Soal</h2><p id="pemb-sub">Jawaban benar & penjelasan lengkap</p></div></div>
     <div id="pemb-list"></div>
@@ -850,54 +887,62 @@ function showToast(msg){
   setTimeout(()=>t.classList.remove('show'),3500);
 }
 
+// ========================================================
+// MENGHILANGKAN LAYAR LOADING DI AWAL
+// ========================================================
 window.addEventListener('load',()=>{
   setTimeout(()=>{
-    document.getElementById('lo').classList.add('hidden');
-    setTimeout(()=>document.getElementById('lo').style.display='none',600);
+    const lo = document.getElementById('lo');
+    if(lo) {
+        lo.classList.add('hidden');
+        setTimeout(()=>lo.style.display='none',600);
+    }
   },2000);
 });
 
 // ========================================================
-// TAMBAHAN SCRIPT ANTI-CHEAT (KELUAR APLIKASI & COPY PASTE)
+// SCRIPT TAMBAHAN: MENU HP, ANTI-BACK, ANTI-CHEAT
 // ========================================================
 
-// 1. Mencegah Klik Kanan, Copy, dan Cut di Area Kuis
-const quizArea = document.getElementById('page-quiz');
-quizArea.addEventListener('contextmenu', e => { 
-    e.preventDefault(); 
-    showToast('⚠️ Klik kanan dinonaktifkan!'); 
-});
-quizArea.addEventListener('copy', e => { 
-    e.preventDefault(); 
-    showToast('⚠️ Copy-paste tidak diizinkan!'); 
-});
-quizArea.addEventListener('cut', e => { 
-    e.preventDefault(); 
+// 1. Fungsi Toggle Menu HP
+function toggleMenu() {
+    document.getElementById('sidebar').classList.toggle('open');
+}
+document.querySelectorAll('.ni').forEach(item => {
+    item.addEventListener('click', () => {
+        document.getElementById('sidebar').classList.remove('open');
+    });
 });
 
-// 2. Fungsi deteksi perpindahan aplikasi
+// 2. Cegah Tombol Back menutup aplikasi
+history.pushState(null, null, window.location.href);
+window.addEventListener('popstate', function(event) {
+    history.pushState(null, null, window.location.href);
+    showToast('⚠️ Gunakan menu di dalam aplikasi, bukan tombol Back HP.');
+    document.getElementById('sidebar').classList.remove('open');
+});
+
+// 3. Mencegah Klik Kanan & Copy-Paste
+const quizArea = document.getElementById('page-quiz');
+quizArea.addEventListener('contextmenu', e => { e.preventDefault(); showToast('⚠️ Klik kanan dinonaktifkan!'); });
+quizArea.addEventListener('copy', e => { e.preventDefault(); showToast('⚠️ Copy-paste tidak diizinkan!'); });
+quizArea.addEventListener('cut', e => { e.preventDefault(); });
+
+// 4. Deteksi Pindah/Keluar Aplikasi
 function penaltiKeluarAplikasi() {
     const isQuizActive = document.getElementById('qsoal').style.display === 'block';
-    
-    // Jika siswa sedang ujian dan tiba-tiba pindah aplikasi (Home/Recent)
     if (isQuizActive) {
-        showToast('⚠️ Terdeteksi keluar aplikasi! Ujian direset.');
-        retryQuiz(); // Mereset ke nomor 1 dan mengacak ulang soal serta opsi
+        alert('⚠️ TERDETEKSI KELUAR APLIKASI ATAU MINIMIZE!\n\nLatihan soal Anda telah direset ulang demi kejujuran.');
+        retryQuiz(); 
     }
 }
-
-// 3. Trigger ketika aplikasi dikirim ke background (Home/Recent Apps ditekan)
 document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') {
-        penaltiKeluarAplikasi();
-    }
+    if (document.visibilityState === 'hidden') { penaltiKeluarAplikasi(); }
 });
-
-// 4. Trigger ketika web kehilangan fokus (Misal split screen / buka notifikasi lama)
 window.addEventListener('blur', () => {
     penaltiKeluarAplikasi();
 });
-// ========================================================
+
 </script>
 </body>
 </html>
