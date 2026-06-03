@@ -184,11 +184,24 @@ table tr:nth-child(even) td{background:var(--g50)}
     top: 64px;
     bottom: 0;
     z-index: 999;
-    width: 260px; /* <--- Tambahan ini agar lebarnya pas dan tidak bikin layar melar */
+    width: 260px;
     transition: left 0.3s ease;
     display: block !important;
     box-shadow: 4px 0 15px rgba(0,0,0,0.5);
   }
+  #sidebar.open { left: 0; }
+  
+  .hero{padding:36px 18px}
+  .hero h1{font-size:1.9rem}
+  .ca,.qc{padding:16px}
+  
+  /* --- TAMBAHAN BARU UNTUK MENCEGAH LAYAR HP MELAR --- */
+  .tyear { display: none; } /* Menyembunyikan teks copyright di HP */
+  .tbadge { display: none; } /* Menyembunyikan badge SMK di HP */
+  #topbar { padding: 0 16px; justify-content: flex-start; }
+  .tlogo { font-size: 1.05rem; } /* Menyesuaikan ukuran logo */
+  html, body { max-width: 100vw; overflow-x: hidden; } /* Mengunci lebar layar */
+}
   #sidebar.open { left: 0; }
   
   .hero{padding:36px 18px}.hero h1{font-size:1.9rem}
