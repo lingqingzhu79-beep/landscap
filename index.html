@@ -174,38 +174,33 @@ table tr:nth-child(even) td{background:var(--g50)}
 /* ====== CSS UNTUK MENU HP ====== */
 .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.4rem; cursor: pointer; padding-right: 10px; }
 
-@media(max-width:768px){
-  #app{grid-template-columns:1fr}
+@media (max-width: 768px) {
+  #app { grid-template-columns: 1fr; }
   .menu-toggle { display: block; }
   
   #sidebar {
-    position: fixed;
-    left: -260px;
-    top: 64px;
-    bottom: 0;
-    z-index: 999;
-    width: 260px;
-    transition: left 0.3s ease;
-    display: block !important;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+    position: fixed; left: -260px; top: 64px; bottom: 0;
+    z-index: 999; width: 260px; transition: left 0.3s ease;
+    display: block !important; box-shadow: 4px 0 15px rgba(0,0,0,0.5);
   }
   #sidebar.open { left: 0; }
   
-  .hero{padding:36px 18px}
-  .hero h1{font-size:1.9rem}
-  .ca,.qc{padding:16px}
+  .hero { padding: 30px 16px; }
+  .hero h1 { font-size: 1.6rem; }
+  .ca, .qc { padding: 16px; width: 100%; overflow-x: hidden; }
   
-  /* --- TAMBAHAN BARU UNTUK MENCEGAH LAYAR HP MELAR --- */
-  .tyear { display: none; } /* Menyembunyikan teks copyright di HP */
-  .tbadge { display: none; } /* Menyembunyikan badge SMK di HP */
-  #topbar { padding: 0 16px; justify-content: flex-start; }
-  .tlogo { font-size: 1.05rem; } /* Menyesuaikan ukuran logo */
-  html, body { max-width: 100vw; overflow-x: hidden; } /* Mengunci lebar layar */
-}
-  #sidebar.open { left: 0; }
+  /* --- PERBAIKAN LEBAR ELEMEN (PENYEBAB ZOOM) --- */
+  /* 1. Paksa menu kotak menjadi 1 kolom (atas-bawah) agar tidak menjebol layar */
+  .bgrid { grid-template-columns: 1fr; }
+  .kgrid { grid-template-columns: 1fr; }
   
-  .hero{padding:36px 18px}.hero h1{font-size:1.9rem}
-  .ca,.qc{padding:16px}
+  /* 2. Sembunyikan dan rapikan Bar Atas yang kepanjangan */
+  .tyear, .tbadge { display: none !important; }
+  #topbar { padding: 0 15px; gap: 10px; }
+  .tlogo { font-size: 1.1rem; white-space: nowrap; }
+  
+  /* 3. Pastikan teks panjang membungkus otomatis */
+  p, h1, h2, h3, h4, .st, .pa { word-wrap: break-word; overflow-wrap: break-word; }
 }
 </style>
 </head>
