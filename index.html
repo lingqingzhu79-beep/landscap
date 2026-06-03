@@ -13,7 +13,7 @@
   --gold:#f59e0b;--cream:#fefce8;--white:#ffffff;
   --gray50:#f9fafb;--gray100:#f3f4f6;--gray200:#e5e7eb;
   --gray600:#4b5563;--gray700:#374151;--gray800:#1f2937;--gray900:#111827;
-  --fd:\'Fraunces\',serif;--fb:\'Plus Jakarta Sans\',sans-serif;
+  --fd:'Fraunces',serif;--fb:'Plus Jakarta Sans',sans-serif;
   --s1:0 1px 3px rgba(0,0,0,.08);--s2:0 4px 16px rgba(22,101,52,.12);
   --s3:0 10px 40px rgba(22,101,52,.18);--s4:0 20px 60px rgba(5,46,22,.25);
   --r1:8px;--r2:14px;--r3:20px;--r4:28px;
@@ -85,6 +85,18 @@ table tr:nth-child(even) td{background:var(--g50)}
 .sn{width:30px;height:30px;background:linear-gradient(135deg,var(--g600),var(--g500));color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.83rem;flex-shrink:0}
 .st{font-size:.86rem;color:var(--gray700);line-height:1.6;padding-top:4px}
 .qc{padding:28px 36px;max-width:760px}
+
+/* ====== TAMBAHAN ANTI COPY PASTE UNTUK AREA KUIS ====== */
+#page-quiz {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* ======================================================= */
+
 .qh{background:linear-gradient(135deg,var(--g700),var(--g600));border-radius:var(--r3);padding:20px 26px;color:white;margin-bottom:22px;display:flex;justify-content:space-between;align-items:flex-start}
 .qh h2{font-family:var(--fd);font-size:1.15rem;font-weight:700}
 .qpi{font-size:.8rem;color:var(--g200);margin-top:3px}
@@ -174,13 +186,11 @@ table tr:nth-child(even) td{background:var(--g50)}
 </div>
 <div class="toast" id="toast"></div>
 <div id="app">
-<!-- TOPBAR -->
 <div id="topbar">
   <div class="tlogo">🌿 <span>Landscaping</span> XI DPIB</div>
   <span class="tbadge">SMK</span><span class="tbadge">DPIB</span>
   <span class="tyear">© 2026 – Media Pembelajaran Interaktif</span>
 </div>
-<!-- SIDEBAR -->
 <nav id="sidebar">
   <div class="nst">Beranda</div>
   <div class="ni active" onclick="showPage('beranda')"><span class="ic">🏠</span>Beranda</div>
@@ -205,9 +215,7 @@ table tr:nth-child(even) td{background:var(--g50)}
   <div class="nst">Penutup</div>
   <div class="ni" onclick="showPage('kesimpulan')"><span class="ic">📋</span>Kesimpulan</div>
 </nav>
-<!-- MAIN -->
 <main id="main">
-<!-- BERANDA -->
 <div id="page-beranda" class="page active">
   <div class="hero">
     <h1>Media Pembelajaran<br><em>Landscaping</em></h1>
@@ -236,7 +244,6 @@ table tr:nth-child(even) td{background:var(--g50)}
     </div>
   </div>
 </div>
-<!-- TUJUAN -->
 <div id="page-tujuan" class="page">
   <div class="hero"><h1>🎯 Tujuan <em>Pembelajaran</em></h1><p>Capaian kompetensi yang diharapkan setelah mengikuti pembelajaran Landscaping XI DPIB.</p></div>
   <div class="ca">
@@ -258,7 +265,6 @@ table tr:nth-child(even) td{background:var(--g50)}
     </div>
   </div>
 </div>
-<!-- CARA PENGGUNAAN -->
 <div id="page-cara" class="page">
   <div class="hero"><h1>📖 Cara <em>Penggunaan</em></h1><p>Panduan penggunaan media pembelajaran interaktif Landscaping XI DPIB.</p></div>
   <div class="ca">
@@ -280,7 +286,6 @@ table tr:nth-child(even) td{background:var(--g50)}
     </div>
   </div>
 </div>
-<!-- BAB 1 -->
 <div id="page-bab1" class="page">
   <div class="hero"><h1>🌱 Bab 1<br><em>Konsep Dasar Lansekap</em></h1><p>Memahami pengertian, sejarah, fungsi, dan ruang lingkup ilmu lansekap sebagai fondasi pembelajaran.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -314,7 +319,6 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab1')">✏️ Mulai Latihan Bab 1 →</button></div></div>
 </div>
-<!-- BAB 2 -->
 <div id="page-bab2" class="page">
   <div class="hero"><h1>📐 Bab 2<br><em>Prinsip Desain Lansekap</em></h1><p>Kaidah-kaidah desain yang menciptakan taman indah, fungsional, dan harmonis.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -354,7 +358,6 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab2')">✏️ Mulai Latihan Bab 2 →</button></div></div>
 </div>
-<!-- BAB 3 -->
 <div id="page-bab3" class="page">
   <div class="hero"><h1>🌳 Bab 3<br><em>Elemen Tanaman & Vegetasi</em></h1><p>Mengenal dan mengklasifikasikan tanaman lansekap untuk komposisi vegetasi yang tepat dan lestari.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -383,7 +386,6 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab3')">✏️ Mulai Latihan Bab 3 →</button></div></div>
 </div>
-<!-- BAB 4 -->
 <div id="page-bab4" class="page">
   <div class="hero"><h1>💧 Bab 4<br><em>Sistem Irigasi Taman</em></h1><p>Perencanaan dan penerapan sistem irigasi yang efisien untuk mendukung kehidupan tanaman lansekap.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -409,7 +411,6 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab4')">✏️ Mulai Latihan Bab 4 →</button></div></div>
 </div>
-<!-- BAB 5 -->
 <div id="page-bab5" class="page">
   <div class="hero"><h1>🏗️ Bab 5<br><em>Elemen Keras (Hardscape)</em></h1><p>Material dan konstruksi elemen keras yang memberikan struktur dan fungsi pada taman.</p><div class="meta"><span class="mbadge">📖 Materi</span><span class="mbadge">✏️ 20 Soal</span></div></div>
   <div class="ca"><div class="card mc">
@@ -438,7 +439,6 @@ table tr:nth-child(even) td{background:var(--g50)}
   </div>
   <div style="text-align:center;margin-top:8px;"><button class="btn btn-p" onclick="showQuiz('bab5')">✏️ Mulai Latihan Bab 5 →</button></div></div>
 </div>
-<!-- KESIMPULAN -->
 <div id="page-kesimpulan" class="page">
   <div class="hero"><h1>📋 <em>Kesimpulan</em></h1><p>Rangkuman seluruh materi Landscaping XI DPIB sebagai bahan review sebelum ujian.</p></div>
   <div class="ca">
@@ -456,10 +456,8 @@ table tr:nth-child(even) td{background:var(--g50)}
     </div>
   </div>
 </div>
-<!-- QUIZ PAGE -->
 <div id="page-quiz" class="page">
 <div class="qc">
-  <!-- FORM IDENTITAS -->
   <div id="qform">
     <div class="sh"><div class="ln"></div><div><h2 id="qform-title">Latihan Soal</h2><p>Isi identitas Anda sebelum memulai</p></div></div>
     <div class="sfc">
@@ -470,7 +468,6 @@ table tr:nth-child(even) td{background:var(--g50)}
       </div>
     <button class="btn btn-p" onclick="startQuiz()" style="width:100%;justify-content:center;font-size:.97rem;padding:13px;">🚀 Mulai Latihan Soal</button>
   </div>
-  <!-- SOAL AREA -->
   <div id="qsoal" style="display:none">
     <div class="qh">
       <div>
@@ -494,7 +491,6 @@ table tr:nth-child(even) td{background:var(--g50)}
       <button class="btn btn-p" id="btn-next" onclick="nextQ()" disabled>Soal Berikutnya →</button>
     </div>
   </div>
-  <!-- HASIL -->
   <div id="qresult" style="display:none">
     <div class="rcard">
       <span class="remi" id="remi">🏆</span>
@@ -507,7 +503,6 @@ table tr:nth-child(even) td{background:var(--g50)}
         <div class="rrow"><span class="rk">❌ Salah</span><span class="rv" id="r-salah">-</span></div>
         <div class="rrow"><span class="rk">📚 Latihan</span><span class="rv" id="r-bab">-</span></div>
       </div>
-      <!-- STATUS KIRIM -->
       <div class="send-status" id="send-status">
         <span id="send-icon">📤</span><span id="send-msg">Mengirim nilai...</span>
       </div>
@@ -518,7 +513,6 @@ table tr:nth-child(even) td{background:var(--g50)}
       </div>
     </div>
   </div>
-  <!-- PEMBAHASAN -->
   <div id="qpembahasan" style="display:none">
     <div class="sh"><div class="ln"></div><div><h2>📖 Pembahasan Soal</h2><p id="pemb-sub">Jawaban benar & penjelasan lengkap</p></div></div>
     <div id="pemb-list"></div>
@@ -534,6 +528,7 @@ table tr:nth-child(even) td{background:var(--g50)}
 </div>
 <script>
 const GAS_URL='https://script.google.com/macros/s/AKfycbzRe0L18YkAbSZFTLMfy4F5yIE3qvNtjU4aObRJ9A5EOw8GnWak59j7FJBDW34kGsNm/exec';
+
 const SOAL=[
 // BAB 1
 {b:1,q:"Apa yang dimaksud dengan lansekap (landscape)?",o:["Seni menata interior ruangan","Ilmu perencanaan dan penataan ruang luar yang mempertimbangkan estetika dan fungsi","Teknik membangun gedung tinggi","Proses pembuatan jalan raya"],a:1,e:"Lansekap adalah seni dan ilmu perencanaan, perancangan, dan pengelolaan lingkungan luar (outdoor) yang mempertimbangkan estetika, ekologi, dan fungsi."},
@@ -662,7 +657,6 @@ function showQuiz(bab){
   const titles={bab1:'Latihan Bab 1 – Konsep Dasar Lansekap',bab2:'Latihan Bab 2 – Prinsip Desain Lansekap',bab3:'Latihan Bab 3 – Elemen Tanaman & Vegetasi',bab4:'Latihan Bab 4 – Sistem Irigasi Taman',bab5:'Latihan Bab 5 – Elemen Keras (Hardscape)',akhir:'Latihan Akhir – Evaluasi Sumatif'};
   document.getElementById('qform-title').textContent=titles[bab]||'Latihan Soal';
   
-  // TAMBAHAN: Kosongkan form input sebelumnya agar aman
   document.getElementById('inPin').value = ''; 
   
   document.getElementById('qform').style.display='block';
@@ -699,14 +693,13 @@ function pickQs(bab){
 function startQuiz(){
   const nm=document.getElementById('inNama').value.trim();
   const kl=document.getElementById('inKelas').value.trim();
-  const pin=document.getElementById('inPin').value.trim(); // Ambil nilai PIN
+  const pin=document.getElementById('inPin').value.trim(); 
   
-  // TENTUKAN PIN GURU DI SINI (Contoh: "123456")
   const pinBenar = "123456"; 
 
   if(!nm){showToast('⚠️ Mohon isi nama lengkap!');return;}
   if(!kl){showToast('⚠️ Mohon isi kelas!');return;}
-  if(pin !== pinBenar){showToast('⚠️ PIN yang Anda masukkan salah!');return;} // Validasi PIN
+  if(pin !== pinBenar){showToast('⚠️ PIN yang Anda masukkan salah!');return;}
 
   sName=nm;sClass=kl;
   cQs=pickQs(cBab);cIdx=0;
@@ -726,7 +719,6 @@ function renderQ(){
   document.getElementById('qtext').textContent=q.q;
   document.getElementById('qprogress-text').textContent=`Soal ${num} dari ${tot}`;
   document.getElementById('qpf').style.width=`${(num/tot)*100}%`;
-  const benar=uAns.filter((a,i)=>a!==null&&a===cQs[i].a).length;
   document.getElementById('qlive').textContent='';
   const OL=['A','B','C','D'];
   const si=shuffle([0,1,2,3]);q._si=si;
@@ -746,23 +738,19 @@ function selectAns(oi,clicked){
   if(done)return;done=true;
   const q=cQs[cIdx];uAns[cIdx]=oi;
   
-  // Memberikan penanda visual sederhana pada pilihan yang diklik siswa
   document.querySelectorAll('.obtn').forEach(btn=>{
-    btn.disabled=true; // Tetap kunci pilihan agar tidak bisa klik dua kali
+    btn.disabled=true; 
     const boi = parseInt(btn.getAttribute('data-oi'));
     if(boi === oi) {
-      btn.classList.add('selected'); // Hanya menandai pilihan siswa (menggunakan kelas CSS 'selected' yang sudah ada di template Anda)
+      btn.classList.add('selected'); 
     }
   });
-  
-  // MENGHILANGKAN: Pemunculan expbox otomatis saat klik jawaban
-  // const eb=document.getElementById('expbox');
-  // eb.textContent=`💡 ${q.e}`;eb.classList.add('show');
   
   document.getElementById('btn-next').disabled=false;
   const isLast=cIdx===cQs.length-1;
   document.getElementById('btn-next').textContent=isLast?'Lihat Hasil →':'Soal Berikutnya →';
 }
+
 function nextQ(){
   if(!done&&uAns[cIdx]===null){showToast('⚠️ Pilih jawaban terlebih dahulu!');return;}
   cIdx++;
@@ -798,7 +786,6 @@ function kirimNilai(){
   const lbl={bab1:'Latihan Bab 1',bab2:'Latihan Bab 2',bab3:'Latihan Bab 3',bab4:'Latihan Bab 4',bab5:'Latihan Bab 5',akhir:'Latihan Akhir'};
   const payload={nama:sName,kelas:sClass,nilai:nilai,keterangan:lulus?'LULUS':'TIDAK LULUS',bab:lbl[cBab]||cBab};
   
-  // Update semua tombol kirim
   ['btn-kirim','btn-kirim2'].forEach(id=>{
     const b=document.getElementById(id);
     if(b){b.disabled=true;b.textContent='⏳ Mengirim...';}
@@ -869,6 +856,48 @@ window.addEventListener('load',()=>{
     setTimeout(()=>document.getElementById('lo').style.display='none',600);
   },2000);
 });
+
+// ========================================================
+// TAMBAHAN SCRIPT ANTI-CHEAT (KELUAR APLIKASI & COPY PASTE)
+// ========================================================
+
+// 1. Mencegah Klik Kanan, Copy, dan Cut di Area Kuis
+const quizArea = document.getElementById('page-quiz');
+quizArea.addEventListener('contextmenu', e => { 
+    e.preventDefault(); 
+    showToast('⚠️ Klik kanan dinonaktifkan!'); 
+});
+quizArea.addEventListener('copy', e => { 
+    e.preventDefault(); 
+    showToast('⚠️ Copy-paste tidak diizinkan!'); 
+});
+quizArea.addEventListener('cut', e => { 
+    e.preventDefault(); 
+});
+
+// 2. Fungsi deteksi perpindahan aplikasi
+function penaltiKeluarAplikasi() {
+    const isQuizActive = document.getElementById('qsoal').style.display === 'block';
+    
+    // Jika siswa sedang ujian dan tiba-tiba pindah aplikasi (Home/Recent)
+    if (isQuizActive) {
+        showToast('⚠️ Terdeteksi keluar aplikasi! Ujian direset.');
+        retryQuiz(); // Mereset ke nomor 1 dan mengacak ulang soal serta opsi
+    }
+}
+
+// 3. Trigger ketika aplikasi dikirim ke background (Home/Recent Apps ditekan)
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+        penaltiKeluarAplikasi();
+    }
+});
+
+// 4. Trigger ketika web kehilangan fokus (Misal split screen / buka notifikasi lama)
+window.addEventListener('blur', () => {
+    penaltiKeluarAplikasi();
+});
+// ========================================================
 </script>
 </body>
 </html>
